@@ -53,3 +53,14 @@ client.on(Events.MessageCreate, async (message) => {
 client.login(process.env.DISCORD_TOKEN)
 
 
+import http from "http";
+
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("ok");
+}).listen(PORT, () => {
+  console.log(`Health server running on port ${PORT}`);
+});
+
